@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -16,7 +16,8 @@ export default function Home() {
   const { handleGetStreamerInfo, isNotFound, streamer } = useStreamer()
   const [streamerName, setStreamerName] = useState('')
   
-  async function handleSearchStreamer() {
+  async function handleSearchStreamer(event: FormEvent) {
+    event.preventDefault()
     await handleGetStreamerInfo(streamerName)
   }
 
