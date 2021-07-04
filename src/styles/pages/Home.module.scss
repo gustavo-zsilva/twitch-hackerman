@@ -1,0 +1,59 @@
+.container {
+    max-width: 80rem;
+    margin: auto;
+
+    header {
+        padding: 1rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            color: var(--primary);
+            margin-left: .4rem;
+        }
+
+        strong {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+
+    .input {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid var(--bg-lighter);
+        padding: .4rem;
+        transition: .2s;
+
+        input {
+            border: 0;
+            outline: 0;
+            padding-left: .6rem;
+            font-size: 1.2rem;
+            background: transparent;
+        }
+
+        &:focus-within {
+            padding: .4rem .6rem;
+            background: var(--bg-light);
+        }
+    }
+
+    main {
+        .streamer {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+                "Profile Stats"
+                "Followers Followers";
+            gap: 2rem;
+        }
+    }
+}

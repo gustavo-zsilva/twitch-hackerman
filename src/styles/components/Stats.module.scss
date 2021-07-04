@@ -1,0 +1,29 @@
+.stats {
+    display: grid;
+    grid-area: Stats;
+    
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: .2rem;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: .2rem;
+        padding: 1rem;
+        background: var(--bg-dark);
+    
+        h3 {
+            font-weight: 500;
+        }
+    
+        strong {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+        }
+    }
+}

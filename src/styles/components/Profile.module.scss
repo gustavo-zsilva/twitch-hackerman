@@ -1,0 +1,41 @@
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    grid-area: Profile;
+
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: .2rem;
+
+    gap: 1rem;
+
+    > picture {
+        border-radius: 50%;
+        overflow: hidden;
+        background: var(--bg-lighter);
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        strong {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        span {
+            padding: .2rem;
+            border-radius: .2rem;
+        }
+    }
+
+    .live {
+        background: red;
+    }
+
+    .offline {
+        background: var(--bg-lighter);
+    }
+}

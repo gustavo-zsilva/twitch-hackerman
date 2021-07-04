@@ -1,0 +1,15 @@
+.button {
+    background: var(--primary);
+    padding: 1rem;
+    border-radius: .2rem;
+    border: 0;
+    
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background .2s;
+
+    &:hover {
+        background: var(--primary-dark);
+    }
+}
