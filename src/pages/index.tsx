@@ -1,6 +1,10 @@
 import { FormEvent, useState } from 'react'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+
+import axios from 'axios'
+import { setCookie, parseCookies } from 'nookies'
 
 import { Button } from '../components/Button'
 import { Profile } from '../components/Profile'
@@ -8,8 +12,18 @@ import { useStreamer } from '../hooks/useStreamer'
 import { Followers } from '../components/Followers'
 import { Stats } from '../components/Stats'
 
+import { api } from '../services/api'
+
 import { FiSearch } from 'react-icons/fi'
 import styles from '../styles/pages/Home.module.scss'
+
+type Token = {
+  access_token: string,
+  expires_in: number,
+  refresh_token: string,
+  scope: string[],
+  token_type: string,
+}
 
 export default function Home() {
 
@@ -72,4 +86,33 @@ export default function Home() {
       </div>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+  const { ['twitchHackerman.code']: code } = parseCookies(ctx)
+
+  if (!ctx.query.code || ctx.query.code === code) {
+    return {
+      redirect: {
+        destination: `https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.BASE_URL}&scope=channel:read:subscriptions user:edit user:edit:follows user:read:email`,
+        permanent: false,
+      }
+    }
+  }
+  
+  const response = await axios.post('http://localhost:3000/api/auth', {
+    data: {
+      code: ctx.query.code
+    }
+  })
+  const token = response.data
+  setCookie(ctx, 'twitchHackerman.code', String(ctx.query.code))
+  setCookie(ctx, 'twitchHackerman.token', JSON.stringify(token), {
+    maxAge: token.expires_in,
+  })
+  
+  return {
+    props: {}
+  }
 }
