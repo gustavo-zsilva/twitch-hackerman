@@ -1,8 +1,6 @@
-import axios from 'axios'
 import { GetServerSidePropsContext } from 'next'
-import { useEffect } from 'react'
-
 import { parseCookies } from 'nookies'
+import axios from 'axios'
 
 // https://id.twitch.tv/oauth2/authorize
 //     ?client_id=CLIENT_ID
@@ -11,26 +9,19 @@ import { parseCookies } from 'nookies'
 //     &scope=channel:manage:schedule channel:read:subscriptions user:edit user:edit:follows user:read:email
 
 export function api(ctx?: GetServerSidePropsContext) {
-  let accessToken = null;
-
-  if (window) {
-    const { ['twitchHackerman.token']: token } = parseCookies()
-    accessToken = JSON.parse(token).access_token
-  }
+  
+  const { 'twitchHackerman.token': token } = parseCookies(ctx)
+  const accessToken = token ? JSON.parse(token).access_token : null
 
   const api = axios.create({
     baseURL: 'https://api.twitch.tv/helix',
   })
-  
-  api.interceptors.request.use(config => {
-    config.headers = {
-        'Client-ID': process.env.CLIENT_ID,
-        'Accept': 'application/vnd.twitchtv.v5+json',
-        'Authorization': `Bearer ${accessToken}`,
-    }
-  
-    return config;
-  })
+
+  if (token) {
+    api.defaults.headers['Authorization'] = `Bearer ${accessToken}`
+    api.defaults.headers['Client-ID'] = process.env.CLIENT_ID
+    api.defaults.headers['Accept'] = 'application/vnd.twitchtv.v5+json'
+  }
 
   return api
 }
