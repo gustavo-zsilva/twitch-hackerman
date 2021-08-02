@@ -49,7 +49,7 @@ export function StreamerProvider({ children }: StreamerProviderProps) {
         if (!name) return;
 
         const channelResponse = await clientApi.get(`/search/channels?query=${name}`)
-        let streamerObj = channelResponse.data.data.find(streamer => streamer.display_name === name)
+        let streamerObj = channelResponse.data.data.find(streamer => streamer.display_name.toLowerCase() === name.toLowerCase())
         if (!streamerObj) {
             setIsNotFound(true)
             return;

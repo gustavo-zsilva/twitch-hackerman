@@ -101,7 +101,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
   }
   
-  const response = await axios.post('http://localhost:3000/api/auth', {
+  const response = await axios.post(`${process.env.BASE_URL}/api/auth`, {
     data: {
       code: ctx.query.code
     }
