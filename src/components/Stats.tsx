@@ -26,7 +26,7 @@ export function Stats() {
             <section>
                 <h3>Followers Count</h3>
                 <strong>
-                    {streamer.followers.length}
+                    {streamer.totalFollowers}
                 </strong>
             </section>
 

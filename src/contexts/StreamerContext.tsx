@@ -1,5 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react"
-import { useRouter } from 'next/router'
+import { createContext, ReactNode, useState } from "react"
 
 import { formatStreamer } from "../utils/formatStreamer"
 import { clientApi } from "../services/clientApi"
@@ -27,6 +26,7 @@ type StreamerProps = {
     viewCount: number,
     email: string,
     followers: Follower[],
+    totalFollowers: number,
 }
 
 type StreamerContextProps = {
@@ -58,7 +58,14 @@ export function StreamerProvider({ children }: StreamerProviderProps) {
         const streamerId = streamerObj.id
         
         const subscribersResponse = await clientApi.get(`/users?id=${streamerId}`)
-        const followsResponse = await clientApi.get(`/users/follows?to_id=${streamerId}`)
+        const followsResponse = await clientApi.get(`/users/follows`, {
+            params: {
+                to_id: streamerId,
+                first: 100,
+            }
+        })
+
+        console.log(followsResponse.data)
         
         streamerObj = {
           ...streamerObj,
@@ -66,6 +73,7 @@ export function StreamerProvider({ children }: StreamerProviderProps) {
           view_count: subscribersResponse.data.data[0].view_count,
           email: subscribersResponse.data.data[0].email,
           followers: followsResponse.data.data,
+          total_followers: followsResponse.data.total,
         }
         
         const formattedStreamer = formatStreamer(streamerObj)

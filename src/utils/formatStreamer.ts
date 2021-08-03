@@ -19,6 +19,7 @@ type StreamerProps = {
   view_count: number,
   email: string,
   followers: Follower[],
+  total_followers: number,
 }
 
 export function formatStreamer(streamer: StreamerProps) {
@@ -36,5 +37,6 @@ export function formatStreamer(streamer: StreamerProps) {
     viewCount: streamer.view_count,
     email: streamer.email,
     followers: streamer.followers,
+    totalFollowers: streamer.total_followers,
   }
 }
