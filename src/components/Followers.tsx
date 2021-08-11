@@ -7,18 +7,18 @@ import styles from '../styles/components/Followers.module.scss'
 export function Followers() {
     const { streamer } = useStreamer()
 
-    const springRef = useSpringRef()
-    const props = useSpring({ from: {
-        background: 'red',
-    },
-    to: {
-        background: 'blue',
-    }, ref: springRef })
+    // const springRef = useSpringRef()
+    // const props = useSpring({ from: {
+    //     background: 'red',
+    // },
+    // to: {
+    //     background: 'blue',
+    // }, ref: springRef })
 
-    const transitionRef = useSpringRef()
-    const transitions = useTransition({ ref: transitionRef })
+    // const transitionRef = useSpringRef()
+    // const transitions = useTransition({ ref: transitionRef })
 
-    useChain([springRef, transitionRef])
+    // useChain([springRef, transitionRef])
 
     return (
         <ul className={styles.followerList}>

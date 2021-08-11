@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import axios from 'axios'
+import { api } from '../services/api'
 import { setCookie, parseCookies } from 'nookies'
 
 import { Button } from '../components/Button'
@@ -11,18 +12,16 @@ import { Profile } from '../components/Profile'
 import { useStreamer } from '../hooks/useStreamer'
 import { Followers } from '../components/Followers'
 import { Stats } from '../components/Stats'
-
-import { api } from '../services/api'
+import { ProfileButton } from '../components/ProfileButton'
 
 import { FiSearch } from 'react-icons/fi'
 import styles from '../styles/pages/Home.module.scss'
+import { StreamerProvider } from '../contexts/StreamerContext'
 
-type Token = {
-  access_token: string,
-  expires_in: number,
-  refresh_token: string,
-  scope: string[],
-  token_type: string,
+type CurrentUser = {
+  id: string,
+  name: string,
+  imageUrl: string,
 }
 
 export default function Home() {
@@ -84,6 +83,8 @@ export default function Home() {
           ) }
         </main>
       </div>
+
+      <ProfileButton />
     </div>
   )
 }

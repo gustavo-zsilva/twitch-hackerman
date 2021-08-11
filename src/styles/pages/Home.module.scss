@@ -1,6 +1,8 @@
 .container {
     max-width: 80rem;
+    height: 100vh;
     margin: auto;
+    position: relative;
 
     header {
         padding: 1rem 0;
@@ -46,16 +48,12 @@
         }
     }
 
-    main {
-        .streamer {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-areas:
-                "Profile Stats"
-                "Followers Followers";
-            gap: 2rem;
-
-            animation: fadeIn 3s backwards;
-        }
+    main .streamer {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "Profile Stats"
+            "Followers Followers";
+        gap: 2rem;
     }
 }

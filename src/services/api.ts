@@ -19,7 +19,7 @@ export function api(ctx?: GetServerSidePropsContext) {
 
   if (token) {
     api.defaults.headers['Authorization'] = `Bearer ${accessToken}`
-    api.defaults.headers['Client-ID'] = process.env.CLIENT_ID
+    api.defaults.headers['Client-Id'] = process.env.CLIENT_ID
     api.defaults.headers['Accept'] = 'application/vnd.twitchtv.v5+json'
   }
 
