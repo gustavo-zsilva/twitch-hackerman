@@ -3,19 +3,19 @@
     flex-direction: column;
     grid-area: Profile;
 
-    background: var(--bg-light);
+    background: var(--bg-primary);
     padding: 1rem;
     border-radius: .2rem;
 
     gap: 1rem;
     animation: fadeIn .4s backwards ease-out;
-
+    
     > picture {
-        border-radius: 50%;
         overflow: hidden;
-        background: var(--bg-lighter);
+        border-radius: 50%;
+        background: var(--bg-secondary);
     }
-
+    
     div {
         display: flex;
         align-items: center;
@@ -37,7 +37,7 @@
     }
 
     .offline {
-        background: var(--bg-lighter);
+        background: var(--bg-light);
     }
 }
 

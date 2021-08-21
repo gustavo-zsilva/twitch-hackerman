@@ -1,3 +1,14 @@
+:root {
+  --bg: #0E0E10;
+  --bg-primary: #1F1F23;
+  --bg-secondary: #38383b;
+  --bg-light: #454547;
+  --text: #FFFFFF;
+  --primary: #9147FF;
+  --primary-dark: #7c3eda;
+  --live: #E81916;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,17 +21,6 @@ body {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   height: 100vh;
-}
-
-:root {
-  --bg: #0E0E10;
-  --bg-light: #1F1F23;
-  --bg-dark: #38383b;
-  --bg-lighter: #454547;
-  --text: #FFFFFF;
-  --primary: #9147FF;
-  --primary-dark: #7c3eda;
-  --live: #E81916;
 }
 
 a, button, input {

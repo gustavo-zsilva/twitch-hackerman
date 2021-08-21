@@ -59,7 +59,7 @@ export default function Home() {
 
           <form onSubmit={handleSearchStreamer}>
             <div className={styles.input}>
-              <FiSearch color="var(--bg-lighter)" size={28} />
+              <FiSearch color="var(--bg-light)" size={28} />
               <input
                 type="text"
                 placeholder="Your favorite streamer"
@@ -107,10 +107,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       code: ctx.query.code
     }
   })
-  const token = response.data
+
+  const token = response.data.token
+  const appToken = response.data.appToken
+
   setCookie(ctx, 'twitchHackerman.code', String(ctx.query.code))
   setCookie(ctx, 'twitchHackerman.token', JSON.stringify(token), {
     maxAge: token.expires_in,
+  })
+  setCookie(ctx, 'twitchHackerman.appToken', JSON.stringify(appToken), {
+    maxAge: appToken.expires_in,
   })
   
   return {

@@ -30,7 +30,7 @@
     .input {
         display: flex;
         align-items: center;
-        border-bottom: 2px solid var(--bg-lighter);
+        border-bottom: 2px solid var(--bg-secondary);
         padding: .4rem;
         transition: .2s;
 
@@ -44,7 +44,7 @@
 
         &:focus-within {
             padding: .4rem .6rem;
-            background: var(--bg-light);
+            background: var(--bg-primary);
         }
     }
 

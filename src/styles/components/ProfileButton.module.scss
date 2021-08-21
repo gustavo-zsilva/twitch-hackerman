@@ -1,11 +1,10 @@
 .profileButton {
-    background: var(--bg-dark);
+    background: var(--bg-primary);
     padding: .8rem;
     border-radius: .2rem;
     border: 0;
     
     // margin-left: 80vw;
-
     
     font-weight: 600;
     position: fixed;
@@ -28,7 +27,8 @@
     }
 
     &:hover {
-        border-radius: 9999px;
+        border-radius: 99px;
+        transition: .6s;
     }
 
     &:disabled {
@@ -36,12 +36,6 @@
     }
 
     .open {
-        &::before {
-            content: "";
-        }
-        
-        &::after {
-            content: "admpoggers";
-        }
+        // When user is hovering the button 
     }
 }

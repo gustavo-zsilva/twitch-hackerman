@@ -5,7 +5,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     
-    background: var(--bg-light);
+    background: var(--bg-primary);
     padding: 1rem;
     border-radius: .2rem;
 
@@ -15,7 +15,7 @@
         justify-content: center;
         border-radius: .2rem;
         padding: 1rem;
-        background: var(--bg-dark);
+        background: var(--bg-secondary);
     
         h3 {
             font-weight: 500;

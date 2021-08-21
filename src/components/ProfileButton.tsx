@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Button } from "./Button";
 import { FiUser } from 'react-icons/fi'
@@ -21,27 +22,29 @@ export function ProfileButton() {
     }
 
     return (
-        <Button
-            className={styles.profileButton}
-            onMouseEnter={handleShowStreamerName}
-            onMouseLeave={handleHideStreamerName}
-        >
-            { currentUser?.imageUrl ? (
-                <picture>
-                    <Image
-                        width={50}
-                        height={50}
-                        src={currentUser.imageUrl}
-                        alt="User Picture"
-                        objectFit="cover"
-                    />
-                </picture>
-            ) : (
-                <FiUser size={32} color="var(--text)" />
-            ) }
-            
-            { isOpen && <span>{currentUser.name}</span> }
-            
-        </Button>
+        <Link href={`/${currentUser?.name.toLowerCase()}`} passHref>
+            <Button
+                className={styles.profileButton}
+                onMouseEnter={handleShowStreamerName}
+                onMouseLeave={handleHideStreamerName}
+            >
+                { currentUser?.imageUrl ? (
+                    <picture>
+                        <Image
+                            width={50}
+                            height={50}
+                            src={currentUser.imageUrl}
+                            alt="User Picture"
+                            objectFit="cover"
+                        />
+                    </picture>
+                ) : (
+                    <FiUser size={32} color="var(--text)" />
+                ) }
+                
+                { isOpen && <span>{currentUser.name}</span> }
+                
+            </Button>
+        </Link>
     )
 }
