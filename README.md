@@ -8,4 +8,18 @@ If you are hyped up I recommend checking it out [here](https://twitchhackerman.v
 
 > Simple Twitch API Searcher, with cool UI and made with NextJS.
 
+## 👨‍💻 Technologies
 
+- Next
+- Typescript
+- Axios
+- DateFNS
+- Nookies
+- Colorthief
+- Sass
+
+## ⭐ Contributing
+
+Any type contribution is totally welcome. Feel free to fork, make pull requests, open issues and etc. on this repo.
+
+### Thanks for your support!
