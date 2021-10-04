@@ -4,7 +4,7 @@
 
 Me too. That's why I created twitchHackerman. It's a performatic website that gives you all the info that Twitch has, and also giving you a more complete UI than Twitch offers.
 
-If you are hyped up I recommend checking it out [here](https://twitch-hackerman.vercel.app).
+If you are hyped up I recommend checking it out [here](https://twitchhackerman.vercel.app).
 
 > Simple Twitch API Searcher, with cool UI and made with NextJS.
 
