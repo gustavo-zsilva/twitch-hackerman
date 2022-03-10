@@ -8,6 +8,8 @@ If you are hyped up I recommend checking it out [here](https://twitchhackerman.v
 
 > Simple Twitch API Searcher, with cool UI and made with NextJS.
 
+![image](https://user-images.githubusercontent.com/65104544/157585687-13dc725c-76af-4b24-b301-1cceb66a1f85.png)
+
 ## 👨‍💻 Technologies
 
 - Next
